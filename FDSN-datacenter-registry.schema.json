@@ -69,7 +69,6 @@
                                         "description": {
                                             "description": "Description of repository",
                                             "type": "string",
-                                            "additionalProperties": false
                                         },
                                         "website": {
                                             "description": "URL to repository website",
