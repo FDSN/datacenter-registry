@@ -3,107 +3,115 @@
     "id": "http://www.fdsn.org/schemas/FDSN-datacenter-registry.schema.json",
     "description": "Data center registry exchange format",
     "definitions": {
-        "service": {
-            "type": "object",
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[-_a-zA-Z0-9]+$": {
-                    "description": "Service name/label (no white space)",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "description": {
-                            "description": "Description of service",
-                            "type": "string"
-                        },
-                        "url": {
-                            "description": "URL to web service, ideally with documentation",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "compatibleWith": {
-                            "description": "Description of service compatibility with a standard or alternate service (e.g. fdsnws-dataselect, fdsnws-station, fdsnws-event)",
-                            "type": "string"
-                        }
+        "services": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name"],
+                "properties": {
+                    "name": {
+                        "description": "Service name (no white space)",
+                        "type": "string",
+                        "pattern": "^[-_a-zA-Z0-9]+$"
+                    },
+                    "description": {
+                        "description": "Description of service",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "URL to web service, ideally with documentation",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "compatibleWith": {
+                        "description": "Description of service compatibility with a standard or alternate service (e.g. fdsnws-dataselect, fdsnws-station, fdsnws-event)",
+                        "type": "string"
                     }
                 }
             }
         }
     },
     "type": "object",
-    "required": ["datacenter"],
+    "required": ["datacenters"],
     "properties": {
-        "datacenter": {
-            "type": "object",
-            "additionalProperties": false,
-            "patternProperties": {
-                "^[-_a-zA-Z0-9]+$": {
-                    "description": "Data center label, short name (no white space)",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": ["website"],
-                    "properties": {
-                        "website": {
-                            "description": "URL to data center website",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "name": {
-                            "description": "Full name of data center",
-                            "type": "string"
-                        },
-                        "summary": {
-                            "description": "Summary of data center",
-                            "type": "string"
-                        },
-                        "repository": {
-                            "description": "Repositories of data center",
+        "datacenters": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "website"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Data center name (no white space)",
+                        "type": "string",
+                        "pattern": "^[-_a-zA-Z0-9]+$"
+                    },
+                    "website": {
+                        "description": "URL to data center website",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "fullName": {
+                        "description": "Full name of data center",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "description": "Summary of data center",
+                        "type": "string"
+                    },
+                    "repositories": {
+                        "description": "Repositories of data center",
+                        "type": "array",
+                        "items": {
                             "type": "object",
                             "additionalProperties": false,
-                            "patternProperties": {
-                                "^[-_a-zA-Z0-9]+$": {
-                                    "description": "Repository label (no white space)",
-                                    "type": "object",
-                                    "additionalProperties": false,
-                                    "properties": {
-                                        "description": {
-                                            "description": "Description of repository",
-                                            "type": "string",
-                                        },
-                                        "website": {
-                                            "description": "URL to repository website",
-                                            "type": "string",
-                                            "format": "uri"
-                                        },
-                                        "service": {"$ref": "#/definitions/service"},
-                                        "timeseriesRouting": {
-                                            "description": "Declared routes for requests for specified data",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "properties": {
-                                                    "network": {"type": "string"},
-                                                    "station": {"type": "string"},
-                                                    "location": {"type": "string"},
-                                                    "channel": {"type": "string"},
-                                                    "starttime": {
-                                                        "type": "string",
-                                                        "format": "date-time"
-                                                    },
-                                                    "endtime": {
-                                                        "type": "string",
-                                                        "format": "date-time"
-                                                    },
-                                                    "priority": {
-                                                        "description": "Priority of route, with 1 being highest",
-                                                        "type": "integer"
-                                                    },
-                                                    "service": {
-                                                        "description": "Services for this route, overriding repository service declarations",
-                                                        "$ref": "#/definitions/service"
-                                                    }
-                                                }
+                            "required": ["name"],
+                            "properties": {
+                                "name": {
+                                    "description": "Repository name (no white space)",
+                                    "type": "string",
+                                    "pattern": "^[-_a-zA-Z0-9]+$"
+                                },
+                                "description": {
+                                    "description": "Description of repository",
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "description": "URL to repository website",
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "services": {"$ref": "#/definitions/services"},
+                                "timeseriesRouting": {
+                                    "description": "Declared routes for requests for specified data",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "network": {"type": "string"},
+                                            "station": {"type": "string"},
+                                            "location": {"type": "string"},
+                                            "channel": {"type": "string"},
+                                            "starttime": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "endtime": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "priority": {
+                                                "description": "Priority of route, with 1 being highest",
+                                                "type": "integer"
+                                            },
+                                            "services": {
+                                                "description": "Services for this route, overriding repository service declarations",
+                                                "$ref": "#/definitions/services"
                                             }
                                         }
                                     }
