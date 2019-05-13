@@ -36,7 +36,7 @@
     "required": ["version", "datacenters"],
     "properties": {
         "version": {
-            "description": "Data center registry message format",
+            "description": "Data center registry message format version",
             "const": 1.0
         },
         "datacenters": {
