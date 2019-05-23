@@ -22,9 +22,9 @@ repository for entries.
 
 A data center may specify one or more repositories with associated web
 service interfaces.  Each repository entry may include routing rules
-for time series data requests.  These rules are to be used to
-determine the primary, secondary, etc. data center from which specific
-data should be requested.
+for data requests.  These rules are to be used to determine the
+primary, secondary, etc. data center from which specific data should
+be requested.
 
 Each routing rule entry may specify a network, station, location,
 channel, start time, end time and priority.  Each of these are
@@ -42,3 +42,25 @@ own or are otherwise delegated to serve must understand that users of
 the central registry will use their own logic to determine from which
 data center to request the data.  This only applies to cases where the
 same data exist at multiple data centers.
+
+## Service names
+
+A registry entry allows the designation of repositories and related
+web services.  Each service entry requires a concise, but descriptive,
+name for the service that will be used to uniquely identify the
+service within the repository.  These names should be the service name
+with the major version of the API they offer appended in the following
+pattern:
+
+`<name>-<majorversion>`
+
+For example:
+`fdsnws-dataselect-1`
+`fdsnws-station-1`
+`fdsnws-event-1`
+
+This allows users of the registry to identify the baseline API
+expectations for each entry.  For full version details and support of
+optional features, the services themselves must be consulted.
+
+The `fdsnws` prefix is reserved for FDSN-specified services.
