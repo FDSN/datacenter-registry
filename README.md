@@ -61,8 +61,8 @@ For example: `fdsnws-dataselect-1`, `fdsnws-station-1`,
 `fdsnws-event-1`, `fdsnws-availability-1` are the names for FDSN 1.x
 web service implementations.
 
-This allows users of the registry to identify the baseline API
-expectations for each entry.  For full version details and support of
+This allows users of the registry to potentially identify the baseline
+API expectations for entries.  For full version details and support of
 optional features, the services themselves must be consulted as the
 authoritative source.  The major version numbers are optional, in
 which case the service must be consulted for that information.
