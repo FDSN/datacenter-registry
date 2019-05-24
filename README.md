@@ -48,16 +48,18 @@ same data exist at multiple data centers.
 A registry entry allows the designation of repositories and related
 web services.  Each service entry requires a concise, but descriptive,
 name for the service that will be used to uniquely identify the
-service within the repository.  These names are recommended to be the
-service name with the major version of the API they offer appended in
-the following pattern:
+service within the repository.  The name can only contain ASCII
+alphnumeric characters, dash and uncerscore.  Service names starting
+with `fdsnws` are reserved for FDSN-specified services.
+
+These names are recommended to be the service name with the major
+version of the API they offer appended in the following pattern:
 
 `<name>-<majorversion>`
 
 For example: `fdsnws-dataselect-1`, `fdsnws-station-1`,
 `fdsnws-event-1`, `fdsnws-availability-1` are the names for FDSN 1.x
-web service implementations.  The `fdsnws` prefix is reserved for
-FDSN-specified services.
+web service implementations.
 
 This allows users of the registry to identify the baseline API
 expectations for each entry.  For full version details and support of
