@@ -7,8 +7,8 @@ A prototype schema for FDSN data center registry exchange format and related inf
 The purpose of this repository is to support the development of a
 schema, rules for use and examples of a JSON-based data format for
 exchange of high-level data center information.  Each data center
-entry may further specify data request routing rules.  The authors
-intend to propose this format as a standard governed by FDSN WG II.
+entry may further specify data set priorities.  The authors intend
+to propose this format as a standard governed by FDSN.
 
 ## Central registry
 
