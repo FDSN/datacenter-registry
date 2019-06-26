@@ -18,30 +18,27 @@ own entry through a web form or web service interface.  Furthermore, a
 web service interface will be provided to allow clients to query the
 repository for entries.
 
-## Routing rules
+## Data center priority declarations
 
-A data center may specify one or more repositories with associated web
-service interfaces.  Each repository entry may include routing rules
-for data requests.  These rules are to be used to determine the
-primary, secondary, etc. data center from which specific data should
-be requested.
+Each repository declared by a center may include a priority for data
+sets.  These priorities are to be used to determine the primary,
+secondary, etc. data center for specific data.
 
-Each routing rule entry may specify a network, station, location,
-channel, start time, end time and priority.  Each of these are
-optional.  In the case of identifiers and time range, when missing
-should be interpreted as "all", inclusively.  In the case of
-priority, when missing should be interpreted as "unknown" and less
-than any explicitly specified priority.
+Each data set entry may specify a network, station, location, channel,
+start time, end time and priority.  Each of these are optional.  In
+the case of identifiers and time range, when missing should be
+interpreted as "all", inclusively.  In the case of priority, when
+missing should be interpreted as "unknown" and less than any
+explicitly specified priority.
 
 The central registry will include conflict detection to avoid the case
-where the same data is directed to two data center repositories with
-the same explicitly specified priority.
+where the same priority is claimed by two data centers for the same data.
 
-_NOTE_: data centers that do not include routing rules for data they
-own or are otherwise delegated to serve must understand that users of
-the central registry will use their own logic to determine from which
-data center to request the data.  This only applies to cases where the
-same data exist at multiple data centers.
+_NOTE_: data centers that do not include priority designations for
+data they own or are otherwise delegated to serve must understand that
+users of the central registry will use their own logic to determine
+from which data center to request the data.  This only applies to
+cases where the same data exist at multiple data centers.
 
 ## Service names
 
