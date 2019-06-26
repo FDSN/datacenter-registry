@@ -1,0 +1,49 @@
+{
+    "version" : 1,
+    "datacenters" : [
+        {
+            "name" : "EXAMPLE",
+            "fullName" : "Example Data Center",
+            "summary" : "The national data center of a galaxy far, far away",
+            "website" : "http://datacenter.org/",
+            "repositories" : [
+                {
+                    "name" : "ARCHIVE",
+                    "description" : "Primary archive and relevant services",
+                    "services" : [
+                        {
+                            "name" : "fdsnws-dataselect-1",
+                            "description" : "Access to raw time series data",
+                            "url" : "http://datacenter.org/fdsnws/dataselect/1",
+                            "compatibleWith" : "fdsnws-dataselect-1"
+                        },
+                        {
+                            "name" : "fdsnws-station-1",
+                            "description" : "Access to metadata describing raw time series data",
+                            "url" : "http://datacenter.org/fdsnws/station/1",
+                            "compatibleWith" : "fdsnws-station-1"
+                        },
+                        {
+                            "name" : "fdsnws-availability-1",
+                            "description" : "Access to availability information for raw time series data",
+                            "url" : "http://datacenter.org/fdsnws/availability/1",
+                            "compatibleWith" : "fdsnws-availability-1"
+                        },
+                        {
+                            "name" : "fdsnws-event-1",
+                            "description" : "Access to event catalogs",
+                            "url" : "http://datacenter.org/fdsnws/event/1",
+                            "compatibleWith" : "fdsnws-event-1"
+                        }
+                    ],
+                    "timeseriesRouting" : [
+                        {
+                            "network" : "XX",
+                            "priority" : 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
