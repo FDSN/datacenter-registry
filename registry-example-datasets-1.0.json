@@ -40,7 +40,7 @@
                         {
                             "network" : "XX",
                             "starttime" : "2016-01-01T00:00:00Z",
-                            "starttime" : "2022-12-31T23:59:59Z",
+                            "endtime" : "2022-12-31T23:59:59Z",
                             "description" : "SUPERV: transects of the Emperor seamount chain",
                             "url" : "http://datacenter.org/networks/XX/",
                             "priority" : 1
