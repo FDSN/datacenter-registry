@@ -90,8 +90,8 @@
                                     "format": "uri"
                                 },
                                 "services": {"$ref": "#/definitions/services"},
-                                "timeseriesRouting": {
-                                    "description": "Declared routes for requests for specified data",
+                                "datasets": {
+                                    "description": "Data sets offered by the data center",
                                     "type": "array",
                                     "items": {
                                         "type": "object",
@@ -110,11 +110,20 @@
                                                 "format": "date-time"
                                             },
                                             "priority": {
-                                                "description": "Priority of route, with 1 being highest",
+                                                "description": "Priority of data center for this data set, with 1 being highest",
                                                 "type": "integer"
                                             },
+                                            "description": {
+                                                "description": "Description of data set",
+                                                "type": "string"
+                                            },
+                                            "url": {
+                                                "description": "URL to data set or summary page",
+                                                "type": "string",
+                                                "format": "uri"
+                                            },
                                             "services": {
-                                                "description": "Services for this route, overriding repository service declarations",
+                                                "description": "Services for this data set, overriding repository service declarations",
                                                 "$ref": "#/definitions/services"
                                             }
                                         }
