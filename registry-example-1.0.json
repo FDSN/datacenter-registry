@@ -14,25 +14,25 @@
                         {
                             "name" : "fdsnws-dataselect-1",
                             "description" : "Access to raw time series data",
-                            "url" : "http://datacenter.org/fdsnws/dataselect/1",
+                            "url" : "http://datacenter.org/fdsnws/dataselect/1/",
                             "compatibleWith" : "fdsnws-dataselect-1"
                         },
                         {
                             "name" : "fdsnws-station-1",
                             "description" : "Access to metadata describing raw time series data",
-                            "url" : "http://datacenter.org/fdsnws/station/1",
+                            "url" : "http://datacenter.org/fdsnws/station/1/",
                             "compatibleWith" : "fdsnws-station-1"
                         },
                         {
                             "name" : "fdsnws-availability-1",
                             "description" : "Access to availability information for raw time series data",
-                            "url" : "http://datacenter.org/fdsnws/availability/1",
+                            "url" : "http://datacenter.org/fdsnws/availability/1/",
                             "compatibleWith" : "fdsnws-availability-1"
                         },
                         {
                             "name" : "fdsnws-event-1",
                             "description" : "Access to event catalogs",
-                            "url" : "http://datacenter.org/fdsnws/event/1",
+                            "url" : "http://datacenter.org/fdsnws/event/1/",
                             "compatibleWith" : "fdsnws-event-1"
                         }
                     ],
