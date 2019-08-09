@@ -1,66 +1,26 @@
 # datacenter-registry
 
-A prototype schema for FDSN data center registry exchange format and related information.
+The FDSN data center registry contains a listing of data centers,
+which (web) services are offered, and which data sets are available
+from each.
 
-# Overview
+Data centers [maintain their own entries](https://www.fdsn.org/datacenters/help/#registry-management)
+after completing the data center registration.
 
-The purpose of this repository is to support the development of a
-schema, rules for use and examples of a JSON-based data format for
-exchange of high-level data center information.  Each data center
-entry may further specify data set priorities.  The authors intend
-to propose this format as a standard governed by FDSN.
+For more information see http://www.fdsn.org/datacenters/help/
 
-## Central registry
+In particular, documentation for the [data set priorities]
+(http://www.fdsn.org/datacenters/help/#data-set-priorities)
+and for [service names](http://www.fdsn.org/datacenters/help/#service-names)
 
-Services will be developed on www.fdsn.org to support a central
-repository.  Data centers will be able to populate and update their
-own entry through a web form or web service interface.  Furthermore, a
-web service interface will be provided to allow clients to query the
-repository for entries.
+## Exchange format
 
-## Data center priority declarations
+Data center registry entries are exchanged in a JSON-based schema, which is
+defined using [JSON Schema](https://json-schema.org/) in this repository.
 
-Each repository declared by a center may include a priority for data
-sets.  These priorities are to be used to determine the primary,
-secondary, etc. data center for specific data.
+## Illustrative example
 
-Each data set entry may specify a network, station, location, channel,
-start time, end time and priority.  Each of these are optional.  In
-the case of identifiers and time range, when missing should be
-interpreted as "all", inclusively.  In the case of priority, when
-missing should be interpreted as "unknown" and less than any
-explicitly specified priority.
-
-The central registry will include conflict detection to avoid the case
-where the same priority is claimed by two data centers for the same data.
-
-_NOTE_: data centers that do not include priority designations for
-data they own or are otherwise delegated to serve must understand that
-users of the central registry will use their own logic to determine
-from which data center to request the data.  This only applies to
-cases where the same data exist at multiple data centers.
-
-## Service names
-
-A registry entry allows the designation of repositories and related
-web services.  Each service entry requires a concise, but descriptive,
-name for the service that will be used to uniquely identify the
-service within the repository.  The name can only contain ASCII
-alphnumeric characters, dash and uncerscore.  Service names starting
-with `fdsnws` are reserved for FDSN-specified services.
-
-These names are recommended to be the service name with the major
-version of the API they offer appended in the following pattern:
-
-`<name>-<majorversion>`
-
-For example: `fdsnws-dataselect-1`, `fdsnws-station-1`,
-`fdsnws-event-1`, `fdsnws-availability-1` are the names for FDSN 1.x
-web service implementations.
-
-This allows users of the registry to potentially identify the baseline
-API expectations for entries.  For full version details and support of
-optional features, the services themselves must be consulted as the
-authoritative source.  The major version numbers are optional, in
-which case the service must be consulted for that information.
+This repository contains an illustrative, reference example of a data
+center entry.  The registry itself contains numerous entries of real
+examples as needed.
 
