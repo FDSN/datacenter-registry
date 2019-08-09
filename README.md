@@ -10,7 +10,7 @@ after completing the data center registration.
 For more information see http://www.fdsn.org/datacenters/help/
 
 In particular, documentation for the [data set priorities](http://www.fdsn.org/datacenters/help/#data-set-priorities)
-and for [service names](http://www.fdsn.org/datacenters/help/#service-names)
+and for [service names](http://www.fdsn.org/datacenters/help/#service-names).
 
 ## Exchange format
 
